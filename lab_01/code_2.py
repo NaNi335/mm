@@ -52,30 +52,3 @@ if __name__ == "__main__":
     y_dec, u_dec, v_dec = decode(y_enc, u_enc, v_enc, 4)
     yuv_to_rgb(y_dec, u_dec, v_dec)
 
-# def yuv_to_rgb(path, step):
-#     img = encoding(path, step)
-#     y, cb, cr = img[:, :, 0], img[:, :, 1], img[:, :, 2]
-#     r = clip(y + 1.402 * (cr - 128), 0, 255)
-#     g = clip(y - 0.34414 * (cb - 128) - 0.71414 * (cr - 128), 0, 255)
-#     b = clip(y + 1.772 * (cb - 128), 0, 255)
-#     rgb = dstack((r, g, b))
-#     rgb = ubyte(rgb)
-#     return rgb
-#
-#
-# def encoding(path, step):
-#     img = rgb_to_yuv(path)
-#     for x in range(0, len(img), step):
-#         for y in range(0, len(img[x]), step):
-#             img[x: (x + step), y: (y + step), 1] = average(img[x: (x + step), y: (y + step), 1])
-#             img[x: (x + step), y: (y + step), 2] = average(img[x: (x + step), y: (y + step), 2])
-#     return img
-#
-#
-#
-#
-#
-# if __name__ == '__main__':
-#     image = 'Parrot.jpg'
-#     n = 4
-#     yuv_to_rgb(image, n)
